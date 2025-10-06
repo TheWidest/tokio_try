@@ -25,13 +25,11 @@ mod tests {
     use tokio::fs::File;
     use tokio::io::AsyncWriteExt;
 
-    // Test for time_consumer function
     #[tokio::test]
     async fn test_time_consumer() {
         let start = std::time::Instant::now();
         time_consumer().await;
         let duration = start.elapsed();
-        // Since we expect the sleep to take around 2 seconds
         assert!(duration.as_secs() >= 2);
     }
 }
